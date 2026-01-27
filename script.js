@@ -15,7 +15,13 @@ for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
     //height: set in pixels to match mathematical width to ensure perfect square 
     //height can be hardcoded as they arent trying to wrap around, like width getting wrapped to the next row. 
     colourSquare.setAttribute("style", `flex: 1 0 ${percentSize}%; height:${colourSquareWidth}px;`)
+
+    colourSquare.addEventListener("mouseenter", () => {
+        colourSquare.classList.add("changeColourOfSquare");
+    })
+
     container.appendChild(colourSquare);
 
 }
+
 
