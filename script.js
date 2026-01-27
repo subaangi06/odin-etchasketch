@@ -24,4 +24,31 @@ for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
 
 }
 
+const changeSquareCount = document.querySelector("#changeSquareCount");
+changeSquareCount.addEventListener("click", ()=>{
+    let userInput = -1
+    while (userInput>100 || userInput<=0||isNaN(userInput))
+    {
+        userInput = prompt("Enter the number of squares you want per side of the grid, maximum 100.")
+        userInput = parseInt(userInput); //make into string
+    }
+
+    let containerSquarePerSide = userInput;
+    let colourSquareWidth = CONTAINERWIDTH/containerSquarePerSide;
+
+    for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
+        const colourSquare = document.createElement("div");
+        colourSquare.classList.add("colourSquare");
+        const percentSize = 100/containerSquarePerSide;
+        colourSquare.setAttribute("style", `flex: 1 0 ${percentSize}%; height:${colourSquareWidth}px;`)
+
+        colourSquare.addEventListener("mouseenter", () => {
+            colourSquare.classList.add("changeColourOfSquare");
+        })
+
+        container.appendChild(colourSquare);
+
+    }
+})
+
 
