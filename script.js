@@ -1,5 +1,5 @@
 const container = document.querySelector("#container");
-const CONTAINERWIDTH = 650;
+const CONTAINERWIDTH = 500;
 let containerSquarePerSide = 16;
 let colourSquareWidth = CONTAINERWIDTH/containerSquarePerSide;
 
@@ -30,11 +30,13 @@ changeSquareCount.addEventListener("click", ()=>{
     while (userInput>100 || userInput<=0||isNaN(userInput))
     {
         userInput = prompt("Enter the number of squares you want per side of the grid, maximum 100.")
-        userInput = parseInt(userInput); //make into string
+        userInput = parseInt(userInput); //make into integer
     }
 
-    let containerSquarePerSide = userInput;
-    let colourSquareWidth = CONTAINERWIDTH/containerSquarePerSide;
+    container.innerHTML = "";
+
+    containerSquarePerSide = userInput;
+    colourSquareWidth = CONTAINERWIDTH/containerSquarePerSide;
 
     for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
         const colourSquare = document.createElement("div");
