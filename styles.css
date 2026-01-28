@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
 
 body{
     display:flex;
@@ -23,5 +23,12 @@ body{
     box-sizing:border-box;
     border:1px solid black;
     color:white
+}
+
+#title{
+    font-family:"Rubik Iso";
+    font-size: 30px;
+    padding:0;
+    margin:0;
 }
 

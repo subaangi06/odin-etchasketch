@@ -3,6 +3,25 @@ const CONTAINERWIDTH = 500;
 let containerSquarePerSide = 16;
 let colourSquareWidth = CONTAINERWIDTH/containerSquarePerSide;
 
+const title = document.querySelector("#title");
+words = title.innerHTML;
+console.log(words);
+title.innerHTML = "";
+//select each character
+words.split("").forEach((char) => {
+    const letterSpan = document.createElement("span");
+    letterSpan.textContent = char;
+
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    
+    letterSpan.style.color = `rgb(${r}, ${g}, ${b})`;
+
+    title.appendChild(letterSpan);
+});
+
+
 
 for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
     const colourSquare = document.createElement("div");
