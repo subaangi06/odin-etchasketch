@@ -6,6 +6,13 @@ let colourSquareWidth = CONTAINERWIDTH/containerSquarePerSide;
 
 for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
     const colourSquare = document.createElement("div");
+   
+    const r = Math.floor(Math.random()*256);
+    const g = Math.floor(Math.random()*256);
+    const b = Math.floor(Math.random()*256);
+
+    let currentOpacity = 0;
+
     colourSquare.classList.add("colourSquare");
     //percentage width of total width (100%)
     const percentSize = 100/containerSquarePerSide;
@@ -17,7 +24,11 @@ for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
     colourSquare.setAttribute("style", `flex: 1 0 ${percentSize}%; height:${colourSquareWidth}px;`)
 
     colourSquare.addEventListener("mouseenter", () => {
-        colourSquare.classList.add("changeColourOfSquare");
+        if (currentOpacity<1){
+            currentOpacity+=0.1;
+        }
+        const randomColour = `rgb(${r}, ${g}, ${b}, ${currentOpacity})`;
+        colourSquare.style.backgroundColor = randomColour;
     })
 
     container.appendChild(colourSquare);
@@ -40,12 +51,23 @@ changeSquareCount.addEventListener("click", ()=>{
 
     for (let i = 0; i<containerSquarePerSide*containerSquarePerSide; i++){
         const colourSquare = document.createElement("div");
+
+        const r = Math.floor(Math.random()*256);
+        const g = Math.floor(Math.random()*256);
+        const b = Math.floor(Math.random()*256);
+
+        let currentOpacity = 0;
+
         colourSquare.classList.add("colourSquare");
         const percentSize = 100/containerSquarePerSide;
         colourSquare.setAttribute("style", `flex: 1 0 ${percentSize}%; height:${colourSquareWidth}px;`)
 
         colourSquare.addEventListener("mouseenter", () => {
-            colourSquare.classList.add("changeColourOfSquare");
+            if (currentOpacity<1){
+                currentOpacity+=0.1;
+            }
+            const randomColour = `rgb(${r}, ${g}, ${b}, ${currentOpacity})`;
+            colourSquare.style.backgroundColor = randomColour;
         })
 
         container.appendChild(colourSquare);
